@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_crimson-logger" default="compile.module.crimson-logger">
+  <dirname property="module.crimson-logger.basedir" file="${ant.file.module_crimson-logger}"/>
+  
+  <property name="module.jdk.home.crimson-logger" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.crimson-logger" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.crimson-logger" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.crimson-logger" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="crimson-logger.output.dir" value="${module.crimson-logger.basedir}/target/classes"/>
+  <property name="crimson-logger.testoutput.dir" value="${module.crimson-logger.basedir}/target/test-classes"/>
+  
+  <path id="crimson-logger.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="crimson-logger.module.production.classpath">
+    <path refid="${module.jdk.classpath.crimson-logger}"/>
+    <path refid="library.maven:_com.github.koraktor:steam-condenser:1.3.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.4.1.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.2.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.2.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.json:json:20090211.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.23.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:17.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-jetty:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-java6:1.23.0.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty-util:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:servlet-api:2.5-20081211.classpath"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-sheets:v4-rev516-1.23.0.classpath"/>
+    <path refid="library.maven:_joda-time:joda-time:2.10.1.classpath"/>
+  </path>
+  
+  <path id="crimson-logger.runtime.production.module.classpath">
+    <pathelement location="${crimson-logger.output.dir}"/>
+    <path refid="library.maven:_com.github.koraktor:steam-condenser:1.3.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.4.1.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.2.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.2.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.json:json:20090211.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.23.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:17.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-jetty:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-java6:1.23.0.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty-util:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:servlet-api:2.5-20081211.classpath"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-sheets:v4-rev516-1.23.0.classpath"/>
+    <path refid="library.maven:_joda-time:joda-time:2.10.1.classpath"/>
+  </path>
+  
+  <path id="crimson-logger.module.classpath">
+    <path refid="${module.jdk.classpath.crimson-logger}"/>
+    <pathelement location="${crimson-logger.output.dir}"/>
+    <path refid="library.maven:_com.github.koraktor:steam-condenser:1.3.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.4.1.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.2.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.2.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.json:json:20090211.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.23.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:17.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-jetty:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-java6:1.23.0.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty-util:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:servlet-api:2.5-20081211.classpath"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-sheets:v4-rev516-1.23.0.classpath"/>
+    <path refid="library.maven:_joda-time:joda-time:2.10.1.classpath"/>
+  </path>
+  
+  <path id="crimson-logger.runtime.module.classpath">
+    <pathelement location="${crimson-logger.testoutput.dir}"/>
+    <pathelement location="${crimson-logger.output.dir}"/>
+    <path refid="library.maven:_com.github.koraktor:steam-condenser:1.3.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.4.1.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.2.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.2.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.json:json:20090211.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.23.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:17.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-jetty:1.23.0.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client-java6:1.23.0.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:jetty-util:6.1.26.classpath"/>
+    <path refid="library.maven:_org.mortbay.jetty:servlet-api:2.5-20081211.classpath"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-sheets:v4-rev516-1.23.0.classpath"/>
+    <path refid="library.maven:_joda-time:joda-time:2.10.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.crimson-logger">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.crimson-logger">
+    <patternset refid="excluded.from.module.crimson-logger"/>
+  </patternset>
+  
+  <path id="crimson-logger.module.sourcepath">
+    <dirset dir="${module.crimson-logger.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="crimson-logger.module.test.sourcepath">
+    <dirset dir="${module.crimson-logger.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.crimson-logger" depends="compile.module.crimson-logger.production,compile.module.crimson-logger.tests" description="Compile module crimson-logger"/>
+  
+  <target name="compile.module.crimson-logger.production" depends="register.custom.compilers" description="Compile module crimson-logger; production classes">
+    <mkdir dir="${crimson-logger.output.dir}"/>
+    <javac2 destdir="${crimson-logger.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.crimson-logger}/javac">
+      <compilerarg line="${compiler.args.crimson-logger}"/>
+      <bootclasspath refid="crimson-logger.module.bootclasspath"/>
+      <classpath refid="crimson-logger.module.production.classpath"/>
+      <src refid="crimson-logger.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.crimson-logger"/>
+    </javac2>
+    
+    <copy todir="${crimson-logger.output.dir}">
+      <fileset dir="${module.crimson-logger.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.crimson-logger.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.crimson-logger.tests" depends="register.custom.compilers,compile.module.crimson-logger.production" description="compile module crimson-logger; test classes" unless="skip.tests">
+    <mkdir dir="${crimson-logger.testoutput.dir}"/>
+    <javac2 destdir="${crimson-logger.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.crimson-logger}/javac">
+      <compilerarg line="${compiler.args.crimson-logger}"/>
+      <bootclasspath refid="crimson-logger.module.bootclasspath"/>
+      <classpath refid="crimson-logger.module.classpath"/>
+      <src refid="crimson-logger.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.crimson-logger"/>
+    </javac2>
+    
+    <copy todir="${crimson-logger.testoutput.dir}">
+      <fileset dir="${module.crimson-logger.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.crimson-logger" description="cleanup module">
+    <delete dir="${crimson-logger.output.dir}"/>
+    <delete dir="${crimson-logger.testoutput.dir}"/>
+  </target>
+</project>
